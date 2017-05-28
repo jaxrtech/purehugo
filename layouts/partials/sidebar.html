@@ -14,7 +14,12 @@
                 {{ end }}
                 {{ with .Site.Params.githubName }}
                 <li class="nav-item">
-                    <a class="pure-button" href="https://github.com/{{ . }} "><i class="fa fa-github-alt"></i> github</a>
+                    <a class="pure-button" href="https://github.com/{{ . }}"><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                {{ end }}
+                {{ with .Site.Params.stackOverflowId }}
+                <li class="nav-item">
+                    <a class="pure-button" href="https://stackoverflow.com/users/{{ . }} "><i class="fa fa-stack-overflow"></i> stack overflow</a>
                 </li>
                 {{ end }}
                 <li class="nav-item">
