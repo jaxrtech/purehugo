@@ -9,7 +9,7 @@
             <div class="posts">
                 {{ range .Paginator.Pages }}
                 <h1 class="content-subhead">{{ .Date.Format "02 Jan 2006, 15:04" }}</h1>
-                <section class="post">
+                <article class="post">
                     <header class="post-header">
 
                         <a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a>
@@ -29,7 +29,7 @@
                     <div class="post-description">
                         {{ .Content }}
                     </div>
-                </section>
+                </article>
                 {{ end }}
             </div>
             {{ partial "pagination.html" . }}
