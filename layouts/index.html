@@ -32,8 +32,10 @@
                 </article>
                 {{ end }}
             </div>
-            {{ partial "pagination.html" . }}
-            {{ partial "footer.html" . }}
+            <div class="posts-footer">
+                {{ partial "pagination.html" . }}
+                {{ partial "footer.html" . }}
+            </div>
         </div>
     </div>
 </div>

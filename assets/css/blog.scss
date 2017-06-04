@@ -63,8 +63,15 @@ blockquote:before {
   margin-right: 0.25em;
   vertical-align: -0.4em;
 }
-blockquote p {
-  display: inline;
+blockquote p:first-child {
+  margin-top: 0em;
+}
+blockquote p:last-child {
+  margin-bottom: 0em;
+}
+
+.no-word-wrap {
+    white-space: nowrap;
 }
 
 /* LAYOUT CSS */
@@ -92,8 +99,9 @@ blockquote p {
     background: rgb(61, 79, 93);
     color: #fff;
 }
-
-
+.sidebar-footer {
+    display: none; /* only on desktop */
+}
 
 .brand-title,
 .brand-tagline {
@@ -155,7 +163,10 @@ blockquote p {
 }
 
 .post {
-    padding-bottom: 2em;
+    padding-bottom: 1.5em;
+}
+.post:last-child {
+    padding-bottom: 0em;
 }
 .post-title {
     font-size: 2em;
@@ -213,17 +224,24 @@ blockquote p {
     text-shadow: 0 1px 1px #333;
 }
 
-.footer {
+.content-footer {
     text-align: center;
-    padding: 1em 0;
+    padding: 1em 0; 
     color: #555;
     font-size: 80%;
 }
-.footer ul li a {
-    display:inline;
+.footer ul {
     padding: 0;
 }
-.hugo{
+.footer li {
+    margin-bottom: 0.15em;
+}
+.footer ul li a {
+    display: inline;
+    white-space: normal;
+    padding: 0;
+}
+.footer a {
     color:#333;
     font-weight: bold;
 }
@@ -263,15 +281,44 @@ blockquote p {
     color:#aaa
 }
 
+.posts-footer {
+    border-top: 1px solid #ccc;
+}
+
+.pagination {
+    margin-top: 0.5em;
+    color: #333; 
+}
+
 /* non-mobile styles */
 $tablet-width: 48em;
 $laptop-width: 64em;
 $desktop-width: 80em;
 
 @media (min-width: $tablet-width) {
-    .sidebar > .header {
-        margin: 80% 2em 0;
+    .sidebar .header {
+        padding: 60% 2em 0; 
         text-align: right;
+        width: 100%;
+    }
+
+    .footer li {
+        margin-bottom: 0em;
+    }
+
+    .sidebar-footer {
+        display: inherit; /* unhide on desktop */
+        width: 100%;
+        position: absolute;
+        text-align: right;
+        padding: 0 2em;
+        color: #eee;
+        font-size: 80%;
+        bottom: 2em;
+    }
+    .sidebar-footer a {
+        color:#eee;
+        font-weight: bold;
     }
 
     .sidebar {
@@ -283,26 +330,65 @@ $desktop-width: 80em;
     .content {
         padding: 2em 3em 0;
         max-width: 48rem;
+        margin-left: 25%;
+    }
+
+    .header {
+        position: absolute;
+    }
+
+    .brand-tagline {
+        color: #eee; 
+    }
+
+    .sidebar-img-container {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    $unsplash-id: "photo-1484249170766-998fa6efe3c0";
+    .sidebar-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        filter: blur(5px);
+        transform: scale(1.05);
+        background-image:
+            /* top, transparent black, faked with gradient */ 
+            linear-gradient(
+            rgba(0, 0, 0, 0.15), 
+            rgba(0, 0, 0, 0.15)
+            ),
+            /* bottom, image */
+            url(https://images.unsplash.com/#{$unsplash-id}?dpr=1&auto=compress,format&fit=crop&w=300&h=700&q=80&cs=tinysrgb&crop=&bg=);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        overflow: hidden;
     }
 }
 
+/*
 @media (min-width: $tablet-width) {
     .sidebar {
-        width: 14rem;
-    }
+        min-width: 300px;
+    } 
 
-    .content {
-        margin-left: 14rem;
+    .content { 
+        margin-left: 300px;
     }
 }
+
 
 @media (min-width: $laptop-width) {
     .sidebar {
-        width: 24rem;
+        width: 20%;
     }
 
     .content {
-        margin-left: 24rem;
+        margin-left: 20%;
     }
 }
 
@@ -315,4 +401,4 @@ $desktop-width: 80em;
         margin-left: 24rem;
     }
 }
-
+*/
