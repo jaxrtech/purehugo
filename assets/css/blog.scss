@@ -1,5 +1,6 @@
 $header-font: "Oxygen", sans-serif;
 $body-font: "Source Sans Pro", serif;
+$hyperlink-color: rgb(61, 146, 201);
 
 * {
     -webkit-box-sizing: border-box;
@@ -20,7 +21,7 @@ html, button, input, select, textarea,
 
 a {
     text-decoration: none;
-    color: rgb(61, 146, 201);
+    color: $hyperlink-color;
 }
 a:hover,
 a:focus {
@@ -144,7 +145,8 @@ blockquote p:last-child {
 }
 .nav-item a:hover,
 .nav-item a:focus {
-    border: 2px solid rgb(61, 146, 201);
+    border: 2px solid $hyperlink-color;
+    color: $hyperlink-color;
     text-decoration: none;
 }
 
@@ -271,7 +273,7 @@ blockquote p:last-child {
 }
 
 .post-share-links a:hover{
-    color: rgb(61, 146, 201);
+    color: $hyperlink-color;
     text-decoration: none;
 }
 
